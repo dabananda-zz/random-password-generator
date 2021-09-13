@@ -30,7 +30,7 @@ function generatePassword(passLen) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
 
-    // Password must have two digit
+    // Password must have at least two digit
     if (randomNumber < 10) {
         passwordDisplayEl.value = result + randomNumber + 1;
     } else {
