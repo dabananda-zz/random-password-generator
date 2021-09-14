@@ -3,6 +3,7 @@ const passwordDisplayEl = document.getElementById('password-display');
 const copyEl = document.getElementById('copy');
 const minusEl = document.getElementById('minus');
 const plusEl = document.getElementById('plus');
+const mainEl = document.getElementById('main');
 const passwordLengthEl = document.getElementById('password-length');
 
 // Password length
@@ -15,7 +16,7 @@ function copyPassword() {
     } else {
         passwordDisplayEl.select();
         navigator.clipboard.writeText(passwordDisplayEl.value);
-        alert("Password copied successfully 😀");
+        alert('Password copied successfully 😀');
     }
 }
 
@@ -48,3 +49,12 @@ regeneratePasswordEl.addEventListener('click', () => generatePassword(passwordLe
 minusEl.addEventListener('click', () => passwordLengthChose(-1));
 plusEl.addEventListener('click', () => passwordLengthChose(1));
 copyEl.addEventListener('click', copyPassword);
+
+// Window resize padding adjusment
+window.addEventListener('resize', function () {
+    if (window.matchMedia('(max-width: 425px)').matches) {
+        mainEl.classList.replace('py-5', 'py-2')
+    } else {
+        mainEl.classList.replace('py-2', 'py-5')
+    }
+});
